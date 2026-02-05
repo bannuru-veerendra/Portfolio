@@ -191,7 +191,7 @@ This is a personal portfolio project. However, suggestions and feedback are welc
 
 **Veerendra Bannuru**
 
-Backend Software Engineer with 2+ years of experience building scalable web applications and RESTful APIs. Specialized in Python, Flask, and modern software engineering practices.
+Backend Software Engineer with 1.5+ years of experience building scalable web applications and RESTful APIs. Specialized in Python, Flask, and modern software engineering practices.
 
 **Connect:**
 - Email: [mr.veeru68@gmail.com](mailto:mr.veeru68@gmail.com)

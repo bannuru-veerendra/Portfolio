@@ -308,13 +308,14 @@ textarea {
 .btn-resume {
     background: var(--bg-secondary);
     color: var(--text-primary);
-    border: 2px solid var(--border-color);
+    border: 2px solid var(--primary-color);
 }
 
 .btn-resume:hover {
     border-color: var(--primary-color);
-    background: var(--bg-tertiary);
+    background: rgba(99, 102, 241, 0.15);
     transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.2);
 }
 
 .social-links {
@@ -537,6 +538,31 @@ section {
 
 .experience-item:nth-child(odd) .experience-content {
     text-align: left;
+}
+
+/* Single experience/education item: hide timeline line and dot, centered layout */
+.experience-timeline:has(.experience-item:only-child)::before,
+.education-timeline:has(.education-item:only-child)::before {
+    display: none;
+}
+
+.experience-timeline:has(.experience-item:only-child) .experience-dot,
+.education-timeline:has(.education-item:only-child) .education-dot {
+    display: none;
+}
+
+.experience-item:only-child,
+.education-item:only-child {
+    padding-left: 0;
+    padding-right: 0;
+    text-align: left;
+}
+
+.experience-item:only-child .experience-content,
+.education-item:only-child .education-content {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 800;
 }
 
 .experience-content:hover,
@@ -1057,7 +1083,11 @@ section {
     }
 
     .experience-item,
-    .education-item {
+    .education-item,
+    .experience-item:nth-child(odd),
+    .experience-item:nth-child(even),
+    .education-item:nth-child(odd),
+    .education-item:nth-child(even) {
         padding-left: 60px;
         padding-right: 0;
         text-align: left;
@@ -1144,8 +1174,13 @@ section {
     
     /* Experience and Education mobile optimizations */
     .experience-item,
-    .education-item {
+    .education-item,
+    .experience-item:nth-child(odd),
+    .experience-item:nth-child(even),
+    .education-item:nth-child(odd),
+    .education-item:nth-child(even) {
         padding-left: 50px;
+        padding-right: 0;
         margin-bottom: 2rem;
     }
     

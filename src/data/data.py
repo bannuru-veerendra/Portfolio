@@ -24,22 +24,6 @@ class Data:
         """
         projects = [
             Project(
-                title="DevShare",
-                description=(
-                    "Full-stack web application built with ReactJS frontend and Flask/Python backend. "
-                    "Architected scalable RESTful API endpoints for user authentication, project management, "
-                    "and social features. Implemented real-time data synchronization, optimized database queries, "
-                    "and deployed on cloud infrastructure. Designed secure authentication system with JWT tokens "
-                    "and role-based access control."
-                ),
-                tags=["ReactJS", "Flask", "TypeScript", "Python", "REST APIs"],
-                links=[
-                    ProjectLink(type="live", url="https://devshare-68.web.app/", label="View Project"),
-                    ProjectLink(type="github", url="https://github.com/mr-veeru", label="View Code")
-                ],
-                icon="fas fa-laptop-code"
-            ),
-            Project(
                 title="AccessVault",
                 description=(
                     "Enterprise-grade backend API system for user management and authentication. Built with Flask "
@@ -51,9 +35,25 @@ class Data:
                 tags=["Flask", "Python", "PostgreSQL", "JWT", "Redis", "Swagger", "Render"],
                 links=[
                     ProjectLink(type="live", url="https://accessvault-api-8shv.onrender.com/", label="View Project"),
-                    ProjectLink(type="github", url="https://github.com/mr-veeru", label="View Code")
+                    ProjectLink(type="github", url="https://github.com/mr-veeru/AccessVault", label="View Code")
                 ],
                 icon="fas fa-shield-alt"
+            ),
+            Project(
+                title="DevShare",
+                description=(
+                    "Full-stack web application built with ReactJS frontend and Flask/Python backend. "
+                    "Architected scalable RESTful API endpoints for user authentication, project management, "
+                    "and social features. Implemented real-time data synchronization, optimized database queries, "
+                    "and deployed on cloud infrastructure. Designed secure authentication system with JWT tokens "
+                    "and role-based access control."
+                ),
+                tags=["ReactJS", "Flask", "TypeScript", "Python", "REST APIs", "MongoDB"],
+                links=[
+                    ProjectLink(type="live", url="https://devshare-68.web.app/", label="View Project"),
+                    ProjectLink(type="github", url="https://github.com/mr-veeru/DevShare", label="View Code")
+                ],
+                icon="fas fa-laptop-code"
             ),
             Project(
                 title="SecurePay Fraud Detection",
@@ -66,7 +66,7 @@ class Data:
                 ),
                 tags=["Python", "Machine Learning", "TensorFlow", "scikit-learn"],
                 links=[
-                    ProjectLink(type="github", url="https://github.com/mr-veeru", label="View Code")
+                    ProjectLink(type="github", url="https://github.com/mr-veeru/SecurePay-Fraud-Detection", label="View Code")
                 ],
                 icon="fas fa-shield-alt"
             ),
@@ -81,7 +81,7 @@ class Data:
                 ),
                 tags=["Java", "Spring Boot", "MySQL", "Razorpay"],
                 links=[
-                    ProjectLink(type="github", url="https://github.com/mr-veeru", label="View Code")
+                    ProjectLink(type="github", url="https://github.com/mr-veeru/Music-Hub", label="View Code")
                 ],
                 icon="fas fa-music"
             ),
@@ -96,7 +96,7 @@ class Data:
                 ),
                 tags=["Java", "Spring Boot", "Zipkin", "Dynatrace"],
                 links=[
-                    ProjectLink(type="github", url="https://github.com/mr-veeru", label="View Code")
+                    ProjectLink(type="github", url="https://github.com/suniljeevan/Presi-HRMS/tree/master", label="View Code")
                 ],
                 icon="fas fa-building"
             ),
@@ -111,7 +111,7 @@ class Data:
                 ),
                 tags=["Python", "Flask", "JavaScript", "Bootstrap"],
                 links=[
-                    ProjectLink(type="github", url="https://github.com/mr-veeru", label="View Code")
+                    ProjectLink(type="github", url="https://github.com/mr-veeru/GuessMaster-2025", label="View Code")
                 ],
                 icon="fas fa-gamepad"
             )
@@ -130,15 +130,15 @@ class Data:
         categories = [
             SkillCategory(
                 title="Programming & Frameworks",
-                skills=["Python", "JavaScript", "Flask", "FastAPI", "React.js"]
+                skills=["Python", "Flask", "FastAPI", "JavaScript"]
             ),
             SkillCategory(
                 title="Backend & Architecture",
-                skills=["REST APIs", "Microservices", "OOP", "JWT Authentication", "API Security"]
+                skills=["REST APIs", "Microservices", "OOP", "JWT Authentication", "API Security", "RabbitMQ"]
             ),
             SkillCategory(
                 title="Databases & ORM",
-                skills=["PostgreSQL", "MySQL", "Supabase", "SQLAlchemy", "Redis"]
+                skills=["PostgreSQL", "MySQL", "MongoDB", "Supabase", "SQLAlchemy", "Redis"]
             ),
             SkillCategory(
                 title="Data Science & ML",
@@ -146,7 +146,7 @@ class Data:
             ),
             SkillCategory(
                 title="DevOps & Tools",
-                skills=["Docker", "Git", "GitHub", "Postman", "Render", "CI/CD", "Linux", "VS Code"]
+                skills=["Docker", "Git", "GitHub", "Postman", "Render", "CI/CD", "Linux", "VS Code", "Cursor AI"]
             ),
             SkillCategory(
                 title="Frontend Technologies",
@@ -171,29 +171,17 @@ class Data:
                 company="Por's and Rao's Studio",
                 location="Bengaluru, India",
                 description=[
-                    "Architected and developed Python-based backend systems and APIs using modern software engineering practices",
-                    "Built and maintained Python libraries and frameworks, implementing new features, optimizations, and performance improvements",
-                    "Designed scalable software solutions that handle complex business logic and data processing requirements",
-                    "Managed codebase using Git/Bitbucket, implementing CI/CD practices and ensuring code quality through code reviews",
-                    "Authored 10+ comprehensive technical documentation, API specifications, and system architecture documents",
-                    "Deployed and maintained production software applications, ensuring high availability and performance"
+                    "Worked independently with full ownership of projects from design and implementation through deployment and maintenance",
+                    "Maintained an internal Python library used across the team, ensuring code quality, stability, and ease of integration",
+                    "Designed and implemented a new REST API within the library to expose core capabilities for internal and external consumers",
+                    "Added new features and functionality to the existing library to support evolving project and product requirements",
+                    "Built a head detection model from dataset creation through training for use in downstream applications",
+                    "Used Docker Desktop for containerized development environments and RabbitMQ for message-based pipeline integration",
+                    "Used Git and GitHub for version control, code updates, and collaborative development workflows",
+                    "Authored comprehensive technical documentation including API specs, architecture notes, and usage guides for the library",
+                    "Leveraged Cursor AI to speed up development, improve code quality, and deliver features more efficiently"
                 ],
-                tags=["Python", "Backend Development", "API Development", "Software Architecture", "Git/Bitbucket", "Technical Documentation"]
-            ),
-            ExperienceItem(
-                period="Apr 2024 - Jul 2024",
-                title="Backend Software Engineer (Full-time Contract)",
-                company="Deepnet Labs",
-                location="Bengaluru, India",
-                description=[
-                    "Developed robust Python-based backend services and RESTful APIs for web applications",
-                    "Designed and implemented database schemas, optimized queries, and ensured data integrity",
-                    "Built scalable software systems with proper error handling, logging, and monitoring capabilities",
-                    "Collaborated with frontend developers and product teams to deliver end-to-end software solutions",
-                    "Wrote comprehensive unit tests and integration tests, maintaining high code coverage and quality",
-                    "Participated in Agile sprints, code reviews, and technical discussions to improve system architecture"
-                ],
-                tags=["Python", "Backend APIs", "Database Design", "Software Testing", "Agile Development", "Git/GitHub"]
+                tags=["Python", "Flask", "REST API", "Backend Development", "API Development", "Git", "GitHub", "Docker", "RabbitMQ", "Technical Documentation", "Cursor AI"]
             )
         ]
 
@@ -210,23 +198,23 @@ class Data:
         education = [
             EducationItem(
                 period="2019 – 2023",
-                title="Bachelor of Technology (B.Tech)",
-                institution="Information Science and Technology",
-                location="Presidency University, Bengaluru, India",
+                title="B.Tech in Information Science and Technology",
+                institution="Presidency University",
+                location="Bengaluru, India",
                 grade="CGPA: 8.21"
             ),
             EducationItem(
                 period="2017 – 2019",
-                title="Higher Secondary Education",
-                institution="Grade 12, MPC",
-                location="Narayana Junior College, Andhra Pradesh, India",
+                title="Higher Secondary (Grade 12, MPC)",
+                institution="Narayana Junior College",
+                location="Andhra Pradesh, India",
                 grade="CGPA: 9.03"
             ),
             EducationItem(
                 period="2017",
-                title="Secondary Education",
-                institution="Grade 10",
-                location="Good Shepherd English Medium School, Andhra Pradesh, India",
+                title="Secondary Education (Grade 10)",
+                institution="Good Shepherd English Medium School",
+                location="Andhra Pradesh, India",
                 grade="CGPA: 9.00"
             )
         ]
@@ -243,6 +231,24 @@ class Data:
         """
         certifications = [
             Certification(
+                title="Rest API",
+                issuer="HackerRank",
+                description="REST API (2025)",
+                icon="fas fa-plug"
+            ),
+            Certification(
+                title="Python",
+                issuer="HackerRank",
+                description="Python (2022)",
+                icon="fab fa-python"
+            ),
+            Certification(
+                title="Python Developer",
+                issuer="Sololearn",
+                description="Python Programming",
+                icon="fab fa-python"
+            ),
+            Certification(
                 title="Full Stack Development Training",
                 issuer="Kodnest",
                 description="Full Stack Web Development",
@@ -255,28 +261,22 @@ class Data:
                 icon="fas fa-brain"
             ),
             Certification(
-                title="National Conference Paper Presentation",
-                issuer="National Conference",
-                description="Research Technical Presentation",
-                icon="fas fa-graduation-cap"
-            ),
-            Certification(
                 title="HTML, JavaScript, & Bootstrap",
                 issuer="Udemy",
                 description="HTML5 JavaScript Bootstrap",
                 icon="fab fa-html5"
             ),
             Certification(
-                title="Python Developer",
-                issuer="Sololearn",
-                description="Python Programming",
-                icon="fab fa-python"
-            ),
-            Certification(
                 title="Java Developer",
                 issuer="Sololearn",
                 description="Java Programming",
                 icon="fab fa-java"
+            ),
+            Certification(
+                title="National Conference Paper Presentation",
+                issuer="National Conference",
+                description="Research Technical Presentation (2023)",
+                icon="fas fa-graduation-cap"
             )
         ]
 
@@ -293,7 +293,7 @@ class Data:
         stats = PortfolioStats(
             github_projects=14,
             live_projects=2,
-            years_experience=2
+            years_experience=1.6
         )
 
         return Serializers.stats_to_dict(stats)
