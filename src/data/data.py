@@ -35,7 +35,7 @@ class Data:
                 tags=["Flask", "Python", "PostgreSQL", "JWT", "Redis", "Swagger", "Render"],
                 links=[
                     ProjectLink(type="live", url="https://accessvault-api-8shv.onrender.com/", label="View Project"),
-                    ProjectLink(type="github", url="https://github.com/mr-veeru/AccessVault", label="View Code")
+                    ProjectLink(type="github", url="https://github.com/bannuru-veerendra/AccessVault", label="View Code")
                 ],
                 icon="fas fa-shield-alt"
             ),
@@ -51,7 +51,7 @@ class Data:
                 tags=["ReactJS", "Flask", "TypeScript", "Python", "REST APIs", "MongoDB"],
                 links=[
                     ProjectLink(type="live", url="https://devshare-68.web.app/", label="View Project"),
-                    ProjectLink(type="github", url="https://github.com/mr-veeru/DevShare", label="View Code")
+                    ProjectLink(type="github", url="https://github.com/bannuru-veerendra/DevShare", label="View Code")
                 ],
                 icon="fas fa-laptop-code"
             ),
@@ -66,7 +66,7 @@ class Data:
                 ),
                 tags=["Python", "Machine Learning", "TensorFlow", "scikit-learn"],
                 links=[
-                    ProjectLink(type="github", url="https://github.com/mr-veeru/SecurePay-Fraud-Detection", label="View Code")
+                    ProjectLink(type="github", url="https://github.com/bannuru-veerendra/SecurePay-Fraud-Detection", label="View Code")
                 ],
                 icon="fas fa-shield-alt"
             ),
@@ -81,7 +81,7 @@ class Data:
                 ),
                 tags=["Java", "Spring Boot", "MySQL", "Razorpay"],
                 links=[
-                    ProjectLink(type="github", url="https://github.com/mr-veeru/Music-Hub", label="View Code")
+                    ProjectLink(type="github", url="https://github.com/bannuru-veerendra/Music-Hub", label="View Code")
                 ],
                 icon="fas fa-music"
             ),
@@ -111,7 +111,7 @@ class Data:
                 ),
                 tags=["Python", "Flask", "JavaScript", "Bootstrap"],
                 links=[
-                    ProjectLink(type="github", url="https://github.com/mr-veeru/GuessMaster-2025", label="View Code")
+                    ProjectLink(type="github", url="https://github.com/bannuru-veerendra/GuessMaster-2025", label="View Code")
                 ],
                 icon="fas fa-gamepad"
             )

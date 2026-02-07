@@ -95,7 +95,7 @@ Portfolio/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/mr-veeru/Portfolio.git
+   git clone https://github.com/bannuru-veerendra/Portfolio.git
    cd Portfolio
    ```
 
@@ -194,6 +194,6 @@ This is a personal portfolio project. However, suggestions and feedback are welc
 Backend Software Engineer with 1.5+ years of experience building scalable web applications and RESTful APIs. Specialized in Python, Flask, and modern software engineering practices.
 
 **Connect:**
-- Email: [mr.veeru68@gmail.com](mailto:mr.veeru68@gmail.com)
-- GitHub: [@mr-veeru](https://github.com/mr-veeru)
+- Email: [bannuru.veerendra@gmail.com](mailto:bannuru.veerendra@gmail.com)
+- GitHub: [@bannuru-veerendra](https://github.com/bannuru-veerendra)
 - LinkedIn: [Veerendra Bannuru](https://www.linkedin.com/in/veerendra-bannuru-900934215)

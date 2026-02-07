@@ -40,7 +40,7 @@ class Config:
     SMTP_PORT: int = int(os.getenv('SMTP_PORT', '587'))
     SMTP_USERNAME: str = os.getenv('SMTP_USERNAME', '')
     SMTP_PASSWORD: str = os.getenv('SMTP_PASSWORD', '')
-    RECIPIENT_EMAIL: str = os.getenv('RECIPIENT_EMAIL', 'mr.veeru68@gmail.com')
+    RECIPIENT_EMAIL: str = os.getenv('RECIPIENT_EMAIL', 'bannuru.veerendra@gmail.com')
 
     # Rate Limiting Configuration
     RATE_LIMIT_DEFAULTS: str = os.getenv('RATE_LIMIT_DEFAULTS', '100 per day')

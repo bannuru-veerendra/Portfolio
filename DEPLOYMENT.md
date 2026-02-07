@@ -14,7 +14,7 @@
 
 ```bash
 cd ~
-git clone https://github.com/mr-veeru/Portfolio.git
+git clone https://github.com/bannuru-veerendra/Portfolio.git
 cd Portfolio
 ```
 
@@ -53,7 +53,7 @@ os.environ['SMTP_SERVER'] = 'smtp.gmail.com'
 os.environ['SMTP_PORT'] = '587'
 os.environ['SMTP_USERNAME'] = 'your-email@gmail.com'
 os.environ['SMTP_PASSWORD'] = 'your-app-password'
-os.environ['RECIPIENT_EMAIL'] = 'mr.veeru68@gmail.com'
+os.environ['RECIPIENT_EMAIL'] = 'bannuru.veerendra@gmail.com'
 os.environ['LOG_LEVEL'] = 'INFO'
 os.environ['RATE_LIMIT_DEFAULTS'] = '100 per day'
 os.environ['RATE_LIMIT_STORAGE_URI'] = 'memory://'
