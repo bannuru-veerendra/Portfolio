@@ -39,9 +39,14 @@ Portfolio/
 ├── run.py              # Application file
 ├── requirements.txt    # Python dependencies
 ├── .gitignore          # Git ignore rules
+├── .env.example        # Environment variables template
 ├── README.md           # Project documentation
 └── app/                # Application package
-    └── __init__.py     # Flask application factory
+    ├── __init__.py     # Flask application factory
+    ├── config.py         # Application configuration
+    ├── logger.py         # Logging configuration
+    └── routes/           # Route handlers
+        └── index.py      # Index and health check routes
 ```
 
 ## Development
@@ -50,4 +55,4 @@ This project is in active development. More features and improvements are coming
 
 ## Author
 
-Created by [mr-veeru](https://github.com/bannuru-veerendra)
+Created by [bannuru-veerendra](https://github.com/bannuru-veerendra)
