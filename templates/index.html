@@ -3,18 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Veerendra Bannuru - Backend Software Engineer Portfolio">
+    <meta name="description" content="Veerendra Bannuru - Software Engineer | Python Developer. Python, Flask, REST APIs, PostgreSQL. Building scalable backend systems. View experience, projects, and contact.">
     <title>Veerendra Bannuru | Backend Software Engineer Portfolio</title>
+    
+    <!-- External Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
-    <main>
-        <h1>Portfolio</h1>
-        <p>Welcome to my portfolio</p>
-        <p>This is a simple portfolio website built with Flask</p>
-        <p>It is a work in progress and will be updated soon</p>
-        <p>Thank you for visiting</p>
-    </main>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <!-- Skip to main content for accessibility -->
+    <a href="#home" class="skip-to-main">Skip to main content</a>
+    
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <div>
+                <a href="#home" class="logo-link" aria-label="Home">
+                    <span class="logo-text">Portfolio</span>
+                </a>
+            </div>
+            <ul class="nav-menu" id="nav-menu" role="menubar">
+                <li role="none"><a href="#about" class="nav-link" role="menuitem">About</a></li>
+                <li role="none"><a href="#experience" class="nav-link" role="menuitem">Experience</a></li>
+                <li role="none"><a href="#education" class="nav-link" role="menuitem">Education</a></li>
+                <li role="none"><a href="#skills" class="nav-link" role="menuitem">Skills</a></li>
+                <li role="none"><a href="#projects" class="nav-link" role="menuitem">Projects</a></li>
+                <li role="none"><a href="#certifications" class="nav-link" role="menuitem">Certifications</a></li>
+                <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
+            </ul>
+            <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Intro Section -->
+    <section id="home" class="intro">
+        <div class="intro-content">
+            <div class="intro-text">
+                <h1 class="intro-title">
+                    <span class="greeting">Hi, I'm</span>
+                    <span class="name">Veerendra</span>
+                    <span class="role">Software Engineer | Python Developer</span>
+                </h1>
+                <p class="intro-description">
+                    Software Engineer with hands-on experience in Python and backend development using Flask.
+                    Skilled in building clean, scalable RESTful APIs, working with relational databases, and improving system performance.
+                    I deploy and maintain backend services, write modular, well-documented code, and collaborate in Agile teams to deliver production-quality software.
+                </p>
+                <div class="intro-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                    <a href="{{ url_for('static', filename='documents/bannuru-veerendra-resume.pdf') }}" class="btn btn-resume" download>
+                        <i class="fas fa-download"></i>
+                        <span>Download Resume</span>
+                    </a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/bannuru-veerendra" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/veerendra-bannuru-900934215" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="mailto:bannuru.veerendra@gmail.com" class="social-link" aria-label="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">01.</span>
+                About Me
+            </h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I'm a Software Engineer with hands-on experience in Python and backend development using Flask.
+                        I build clean, scalable RESTful APIs, work with relational databases, and improve system performance.
+                        I deploy and maintain backend services, write modular, well-documented code, and collaborate in Agile teams to deliver production-quality software.
+                    </p>
+                    <p>
+                        My core expertise includes architecting RESTful APIs, designing relational database schemas, implementing
+                        authentication & authorization systems, and deploying applications to cloud platforms. I thrive in Agile
+                        environments and enjoy collaborating with cross-functional teams to build systems that scale with business growth.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="14">0</div>
+                            <div class="stat-label">GitHub Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="2">0</div>
+                            <div class="stat-label">Live Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-target="1">0</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <img src="{{ url_for('static', filename='documents/profile.jpg') }}" alt="Veerendra Bannuru - Software Engineer | Python Developer" class="profile-image" loading="lazy" width="400" height="400">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">02.</span>
+                Professional Experience
+            </h2>
+            <div class="experience-timeline">
+                <!-- Experience items will be loaded dynamically from API -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">03.</span>
+                Education
+            </h2>
+            <div class="education-timeline">
+                <!-- Education items will be loaded dynamically from API -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">04.</span>
+                Skills & Technologies
+            </h2>
+            <div class="skills-grid">
+                <!-- Skills will be loaded dynamically from API -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">05.</span>
+                Featured Projects
+            </h2>
+            <div class="projects-grid">
+                <!-- Projects will be loaded dynamically from API -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">06.</span>
+                Certifications
+            </h2>
+            <div class="certifications-grid">
+                <!-- Certifications will be loaded dynamically from API -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-number">07.</span>
+                Get In Touch
+            </h2>
+            <div class="contact-content">
+                <div>
+                    <p class="contact-description">
+                        I'm always open to discussing new projects, creative ideas, or opportunities to be part
+                        of your visions. Feel free to reach out if you'd like to collaborate or have any questions.
+                    </p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Email</h4>
+                                <p>bannuru.veerendra@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h4>Location</h4>
+                                <p>Nandyal, Andhra Pradesh, India</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
 </body>
 </html>

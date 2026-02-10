@@ -14,8 +14,13 @@ from app.logger import setup_logging
 
 def create_app() -> Flask:
     """Create and configure the Flask application instance."""
-
-    app = Flask(__name__)
+    # Project root (parent of app package); templates and static live there
+    project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    app = Flask(
+        __name__,
+        template_folder=os.path.join(project_root, "templates"),
+        static_folder=os.path.join(project_root, "static"),
+    )
     app.config.from_object(Config)
 
     setup_logging(app)

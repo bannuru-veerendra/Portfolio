@@ -9,12 +9,13 @@ A modern portfolio website built with Flask, showcasing projects, skills, and pr
 - Rate limiting for API protection
 - Compression for optimized performance
 - Environment-based configuration
+- Modular Flask app using application factory pattern
 
 ## Installation
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/mr-veeru/Portfolio.git
+git clone https://github.com/bannuru-veerendra/Portfolio.git
 cd Portfolio
 ```
 
@@ -36,24 +37,25 @@ The application will be available at `http://localhost:5000`
 
 ```
 Portfolio/
-├── run.py              # Application entry file
-├── requirements.txt    # Python dependencies
-├── .gitignore          # Git ignore rules
-├── .env.example        # Environment variables template
-├── README.md           # Project documentation
-├── app/                # Application package
-│   ├── __init__.py     # Flask application factory
-│   ├── config.py       # Application configuration
-│   ├── logger.py       # Logging configuration
-│   └── routes/         # Route handlers
-│        └── index.py   # Index and health check routes
-├── static/               # Static files
-│   ├── css/            # Stylesheets
-│   │   └── style.css   # Main stylesheet
-│   └── js/             # JavaScript files
-│       └── script.js   # Main JavaScript file
-└── templates/          # HTML templates
-    └── index.html      # Homepage template
+├── run.py                 # Application entry point
+├── requirements.txt       # Python dependencies
+├── .env.example           # Environment variables template
+├── .gitignore             # Git ignore rules
+├── README.md              # Project documentation
+├── app/                   # Application package
+│   ├── __init__.py        # Flask app factory, template/static paths
+│   ├── config.py          # Configuration (env, logging)
+│   ├── logger.py          # Logging setup
+│   └── routes/
+│       └── index.py       # Index and health check routes
+├── static/                # Static assets
+│   ├── css/
+│   │   └── style.css      # Main stylesheet
+│   ├── js/
+│   │   └── script.js      # Main script
+│   └── documents/         # Resume, profile image
+└── templates/             # Jinja2 templates
+    └── index.html         # Homepage
 ```
 
 ## Development
