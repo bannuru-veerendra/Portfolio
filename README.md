@@ -36,17 +36,24 @@ The application will be available at `http://localhost:5000`
 
 ```
 Portfolio/
-├── run.py              # Application file
+├── run.py              # Application entry file
 ├── requirements.txt    # Python dependencies
 ├── .gitignore          # Git ignore rules
 ├── .env.example        # Environment variables template
 ├── README.md           # Project documentation
-└── app/                # Application package
-    ├── __init__.py     # Flask application factory
-    ├── config.py         # Application configuration
-    ├── logger.py         # Logging configuration
-    └── routes/           # Route handlers
-        └── index.py      # Index and health check routes
+├── app/                # Application package
+│   ├── __init__.py     # Flask application factory
+│   ├── config.py       # Application configuration
+│   ├── logger.py       # Logging configuration
+│   └── routes/         # Route handlers
+│        └── index.py   # Index and health check routes
+├── static/               # Static files
+│   ├── css/            # Stylesheets
+│   │   └── style.css   # Main stylesheet
+│   └── js/             # JavaScript files
+│       └── script.js   # Main JavaScript file
+└── templates/          # HTML templates
+    └── index.html      # Homepage template
 ```
 
 ## Development

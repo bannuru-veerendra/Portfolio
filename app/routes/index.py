@@ -4,7 +4,7 @@ Index Routes
 Home page and health check endpoints for the portfolio website.
 """
 
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, render_template
 
 # Create a Blueprint for the index routes
 index_bp = Blueprint('index', __name__)
@@ -12,8 +12,8 @@ index_bp = Blueprint('index', __name__)
 
 @index_bp.route('/')
 def index():
-    """Root endpoint to welcome the user to the portfolio website."""
-    return jsonify({'message': 'Welcome to the Portfolio website'}), 200
+    """Root endpoint to render the portfolio homepage."""
+    return render_template('index.html')
 
 
 @index_bp.route('/health')

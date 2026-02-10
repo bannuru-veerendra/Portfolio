@@ -9,7 +9,7 @@ import os
 from flask import Flask
 from app.config import Config
 from app.routes.index import index_bp
-from app.logger import logger, setup_logging
+from app.logger import setup_logging
 
 
 def create_app() -> Flask:
@@ -21,7 +21,7 @@ def create_app() -> Flask:
     setup_logging(app)
     # Only log in the worker that serves (avoid duplicate when Flask reloader runs two processes)
     if not app.debug or os.environ.get("WERKZEUG_RUN_MAIN") == "true":
-        logger.info(
+        app.logger.info(
             "Application started (DEBUG=%s, LOG_LEVEL=%s)",
             app.config.get("DEBUG"),
             app.config.get("LOG_LEVEL", "INFO"),
