@@ -46,6 +46,9 @@ Portfolio/
 │   ├── __init__.py        # Flask app factory, template/static paths
 │   ├── config.py          # Configuration (env, logging)
 │   ├── logger.py          # Logging setup
+│   ├── models/
+│   │   ├── models.py      # Data models
+│   │   └── serializers.py # API serializers
 │   └── routes/
 │       └── index.py       # Index and health check routes
 ├── static/                # Static assets
