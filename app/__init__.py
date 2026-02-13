@@ -9,6 +9,7 @@ import os
 from flask import Flask
 from app.config import Config
 from app.routes.index import index_bp
+from app.routes.api import api_bp
 from app.logger import setup_logging
 
 
@@ -33,5 +34,5 @@ def create_app() -> Flask:
         )
 
     app.register_blueprint(index_bp)
-
+    app.register_blueprint(api_bp)
     return app

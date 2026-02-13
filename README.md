@@ -46,11 +46,14 @@ Portfolio/
 │   ├── __init__.py        # Flask app factory, template/static paths
 │   ├── config.py          # Configuration (env, logging)
 │   ├── logger.py          # Logging setup
+│   ├── data/
+│   │   └── data.py        # Portfolio data (projects, skills, etc.)
 │   ├── models/
 │   │   ├── models.py      # Data models
 │   │   └── serializers.py # API serializers
 │   └── routes/
-│       └── index.py       # Index and health check routes
+│       ├── index.py       # Index and health check routes
+│       └── api.py         # API endpoints (projects, skills, experience, etc.)
 ├── static/                # Static assets
 │   ├── css/
 │   │   └── style.css      # Main stylesheet
