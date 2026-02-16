@@ -37,31 +37,35 @@ The application will be available at `http://localhost:5000`
 
 ```
 Portfolio/
-├── run.py                 # Application entry point
-├── requirements.txt       # Python dependencies
-├── .env.example           # Environment variables template
-├── .gitignore             # Git ignore rules
-├── README.md              # Project documentation
-├── app/                   # Application package
-│   ├── __init__.py        # Flask app factory, template/static paths
-│   ├── config.py          # Configuration (env, logging)
-│   ├── logger.py          # Logging setup
+├── run.py                      # Application entry point
+├── requirements.txt            # Python dependencies
+├── .env.example                # Environment variables template
+├── .gitignore                  # Git ignore rules
+├── README.md                   # Project documentation
+├── app/                        # Application package
+│   ├── __init__.py             # Flask app factory, template/static paths
+│   ├── config.py               # Configuration (env, logging)
+│   ├── logger.py               # Logging setup
+│   ├── exceptions.py           # Custom exceptions (e.g. EmailServiceError)
 │   ├── data/
-│   │   └── data.py        # Portfolio data (projects, skills, etc.)
+│   │   └── data.py             # Portfolio data (projects, skills, experience, etc.)
 │   ├── models/
-│   │   ├── models.py      # Data models
-│   │   └── serializers.py # API serializers
-│   └── routes/
-│       ├── index.py       # Index and health check routes
-│       └── api.py         # API endpoints (projects, skills, experience, etc.)
-├── static/                # Static assets
+│   │   ├── models.py           # Data models
+│   │   └── serializers.py      # API serializers
+│   ├── routes/
+│   │   ├── index.py            # Index and health check routes
+│   │   ├── api.py              # API endpoints (projects, skills, stats, etc.)
+│   │   └── contact.py          # Contact form submission
+│   └── services/
+│       └── email_service.py    # SMTP email sending
+├── static/                     # Static assets
 │   ├── css/
-│   │   └── style.css      # Main stylesheet
+│   │   └── style.css           # Main stylesheet
 │   ├── js/
-│   │   └── script.js      # Main script
-│   └── documents/         # Resume, profile image
-└── templates/             # Jinja2 templates
-    └── index.html         # Homepage
+│   │   └── script.js           # Main script
+│   └── documents/              # Resume, profile image (gitignored)
+├── templates/                  # Jinja2 templates
+│   └── index.html              # Homepage
 ```
 
 ## Development
