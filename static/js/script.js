@@ -348,10 +348,52 @@ async function updateStats() {
     }
 }
 
+// Contact form: AJAX submit, show success/error on same page
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+    const statusEl = document.getElementById('form-status');
+    const submitBtn = document.getElementById('submit-btn');
+    const submitText = document.getElementById('submit-text');
+    const submitIcon = document.getElementById('submit-icon');
+
+    const setStatus = (msg, ok) => {
+        if (!statusEl) return;
+        statusEl.textContent = msg || '';
+        statusEl.classList.toggle('is-success', ok === true);
+        statusEl.classList.toggle('is-error', ok === false);
+        statusEl.setAttribute('aria-hidden', msg ? 'false' : 'true');
+    };
+
+    const setBusy = (busy) => {
+        if (submitBtn) submitBtn.disabled = busy;
+        if (submitText) submitText.textContent = busy ? 'Sending...' : 'Send Message';
+        if (submitIcon) submitIcon.className = busy ? 'fas fa-spinner fa-spin' : 'fas fa-paper-plane';
+    };
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        setStatus('', null);
+        setBusy(true);
+        try {
+            const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'X-Requested-With': 'XMLHttpRequest' } });
+            const data = await res.json().catch(() => ({}));
+            const ok = Boolean(res.ok && data.success);
+            setStatus(data.message || (ok ? "Message sent successfully! I'll get back to you soon." : 'Something went wrong. Please try again or email me directly.'), ok);
+            if (ok) form.reset();
+        } catch {
+            setStatus('Network error. Please try again or email me directly.', false);
+        } finally {
+            setBusy(false);
+        }
+    });
+}
+
 // Page Initialization
 document.addEventListener('DOMContentLoaded', async () => {
     // Set initial active nav link
     updateActiveNavLink();
+    initContactForm();
 
     // Load data from API
     await Promise.all([

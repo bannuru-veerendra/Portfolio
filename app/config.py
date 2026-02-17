@@ -21,3 +21,23 @@ class Config:
 
     # Logging configuration
     LOG_LEVEL: str = os.getenv('LOG_LEVEL', 'INFO').upper()
+
+    # Contact Form Validation
+    MAX_NAME_LENGTH: int = int(os.getenv('MAX_NAME_LENGTH', '100'))
+    MAX_EMAIL_LENGTH: int = int(os.getenv('MAX_EMAIL_LENGTH', '254'))
+    MAX_SUBJECT_LENGTH: int = int(os.getenv('MAX_SUBJECT_LENGTH', '200'))
+    MAX_MESSAGE_LENGTH: int = int(os.getenv('MAX_MESSAGE_LENGTH', '5000'))
+
+    # Email (SMTP) – used by contact form and EmailService
+    SMTP_SERVER: str = os.getenv('SMTP_SERVER', '')
+    SMTP_PORT: str = os.getenv('SMTP_PORT', '587')
+    SMTP_USERNAME: str = os.getenv('SMTP_USERNAME', '')
+    SMTP_PASSWORD: str = os.getenv('SMTP_PASSWORD', '')
+    RECIPIENT_EMAIL: str = os.getenv('RECIPIENT_EMAIL', '')
+
+    @classmethod
+    def validate_email_config(cls) -> bool:
+        """Return True if email is configured enough to send contact form messages."""
+        return bool(
+            cls.SMTP_SERVER and cls.SMTP_USERNAME and cls.SMTP_PASSWORD and cls.RECIPIENT_EMAIL
+        )
