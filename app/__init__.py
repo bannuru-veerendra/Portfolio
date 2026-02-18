@@ -12,6 +12,7 @@ from app.routes.index import index_bp
 from app.routes.api import api_bp
 from app.routes.contact import contact_bp
 from app.logger import setup_logging
+from app.extensions import limiter
 
 
 def create_app() -> Flask:
@@ -37,4 +38,5 @@ def create_app() -> Flask:
     app.register_blueprint(index_bp)
     app.register_blueprint(api_bp)
     app.register_blueprint(contact_bp)
+    limiter.init_app(app)
     return app

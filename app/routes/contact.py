@@ -10,6 +10,7 @@ from app.config import Config
 from app.logger import get_logger
 from app.exceptions import ValidationError
 from app.services.email_service import EmailService
+from app.extensions import limiter
 
 logger = get_logger(__name__)
 
@@ -19,6 +20,7 @@ contact_bp = Blueprint('contact', __name__)
 
 
 @contact_bp.route('/contact', methods=['POST'])
+@limiter.limit(Config.RATE_LIMIT_DEFAULTS)
 def submit_contact_form() -> Tuple[Response, int]:
     """Handle contact form submissions via AJAX"""
     client_ip: str = request.remote_addr or 'unknown'

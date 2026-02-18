@@ -35,6 +35,10 @@ class Config:
     SMTP_PASSWORD: str = os.getenv('SMTP_PASSWORD', '')
     RECIPIENT_EMAIL: str = os.getenv('RECIPIENT_EMAIL', '')
 
+    # Rate Limiting Configuration
+    RATE_LIMIT_DEFAULTS: str = os.getenv('RATE_LIMIT_DEFAULTS', '5 per minute')
+    RATE_LIMIT_STORAGE_URI: str = os.getenv('RATE_LIMIT_STORAGE_URI', 'memory://')
+
     @classmethod
     def validate_email_config(cls) -> bool:
         """Return True if email is configured enough to send contact form messages."""

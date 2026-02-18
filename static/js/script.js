@@ -156,12 +156,17 @@ async function fetchAPI(endpoint) {
 /**
  * Render projects dynamically
  */
-async function renderProjects() {
-    const projects = await fetchAPI('projects');
-    if (!projects) return;
+const API_ERROR_MSG = '<p style="text-align: center; color: var(--text-secondary);">Unable to load. Please refresh the page.</p>';
 
+async function renderProjects() {
     const projectsGrid = document.querySelector('.projects-grid');
     if (!projectsGrid) return;
+
+    const projects = await fetchAPI('projects');
+    if (!projects || projects.length === 0) {
+        projectsGrid.innerHTML = API_ERROR_MSG;
+        return;
+    }
 
     projectsGrid.innerHTML = projects.map(project => {
         const linksHTML = project.links.map(link => {
@@ -208,7 +213,7 @@ async function renderSkills() {
 
     const skills = await fetchAPI('skills');
     if (!skills || skills.length === 0) {
-        skillsGrid.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Unable to load skills. Please refresh the page.</p>';
+        skillsGrid.innerHTML = API_ERROR_MSG;
         return;
     }
 
@@ -232,11 +237,14 @@ async function renderSkills() {
  * Render experience dynamically
  */
 async function renderExperience() {
-    const experience = await fetchAPI('experience');
-    if (!experience) return;
-
     const experienceTimeline = document.querySelector('.experience-timeline');
     if (!experienceTimeline) return;
+
+    const experience = await fetchAPI('experience');
+    if (!experience || experience.length === 0) {
+        experienceTimeline.innerHTML = API_ERROR_MSG;
+        return;
+    }
 
     experienceTimeline.innerHTML = experience.map(exp => {
         const descriptionHTML = exp.description.map(desc => `<li>${desc}</li>`).join('');
@@ -271,7 +279,7 @@ async function renderEducation() {
 
     const education = await fetchAPI('education');
     if (!education || education.length === 0) {
-        educationTimeline.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Unable to load education. Please refresh the page.</p>';
+        educationTimeline.innerHTML = API_ERROR_MSG;
         return;
     }
 
@@ -303,7 +311,7 @@ async function renderCertifications() {
 
     const certifications = await fetchAPI('certifications');
     if (!certifications || certifications.length === 0) {
-        certificationsGrid.innerHTML = '<p style="text-align: center; color: var(--text-secondary);">Unable to load certifications. Please refresh the page.</p>';
+        certificationsGrid.innerHTML = API_ERROR_MSG;
         return;
     }
 

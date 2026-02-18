@@ -11,6 +11,11 @@ A modern portfolio website built with Flask, showcasing projects, skills, and pr
 - Environment-based configuration
 - Modular Flask app using application factory pattern
 
+## Before you run
+
+- **Resume & profile image:** Add `bannuru-veerendra-resume.pdf` and `profile.jpg` under `static/documents/` so the Download Resume button and About photo work. Create the folder if it doesn't exist.
+- **Production:** Set a strong, unique `SECRET_KEY` in `.env` (e.g. `openssl rand -hex 32`). Do not use the default from `.env.example`.
+
 ## Installation
 
 1. Clone the repository:
@@ -46,7 +51,8 @@ Portfolio/
 │   ├── __init__.py             # Flask app factory, template/static paths
 │   ├── config.py               # Configuration (env, logging)
 │   ├── logger.py               # Logging setup
-│   ├── exceptions.py           # Custom exceptions (e.g. EmailServiceError)
+│   ├── exceptions.py           # Custom exceptions (e.g. ValidationError)
+│   ├── extensions.py           # Flask extensions (e.g. rate limiter)
 │   ├── data/
 │   │   └── data.py             # Portfolio data (projects, skills, experience, etc.)
 │   ├── models/
@@ -54,7 +60,7 @@ Portfolio/
 │   │   └── serializers.py      # API serializers
 │   ├── routes/
 │   │   ├── index.py            # Index and health check routes
-│   │   ├── api.py              # API endpoints (projects, skills, stats, etc.)
+│   │   ├── api.py              # API endpoints (projects, skills, experience, etc.)
 │   │   └── contact.py          # Contact form submission
 │   └── services/
 │       └── email_service.py    # SMTP email sending
@@ -62,9 +68,9 @@ Portfolio/
 │   ├── css/
 │   │   └── style.css           # Main stylesheet
 │   ├── js/
-│   │   └── script.js           # Main script
-│   └── documents/              # Resume, profile image (gitignored)
-├── templates/                  # Jinja2 templates
+│   │   └── script.js           # Frontend logic, API loading, contact form
+│   └── documents/              # Resume PDF, profile image (add these locally)
+├── templates/
 │   └── index.html              # Homepage
 ```
 
