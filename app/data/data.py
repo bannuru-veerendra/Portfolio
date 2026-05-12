@@ -166,22 +166,36 @@ class Data:
         """
         experience = [
             ExperienceItem(
-                period="Aug 2024 - Present",
-                title="Backend Software Engineer",
-                company="Por's and Rao's Studio",
+                period="Aug 2024 – Present",
+                title="Junior Software Engineer",
+                company="Pors & Rao",
                 location="Bengaluru, India",
                 description=[
-                    "Worked independently with full ownership of projects from design and implementation through deployment and maintenance",
-                    "Maintained an internal Python library used across the team, ensuring code quality, stability, and ease of integration",
-                    "Designed and implemented a new REST API within the library to expose core capabilities for internal and external consumers",
-                    "Added new features and functionality to the existing library to support evolving project and product requirements",
-                    "Built a head detection model from dataset creation through training for use in downstream applications",
-                    "Used Docker Desktop for containerized development environments and RabbitMQ for message-based pipeline integration",
-                    "Used Git and GitHub for version control, code updates, and collaborative development workflows",
-                    "Authored comprehensive technical documentation including API specs, architecture notes, and usage guides for the library",
-                    "Leveraged Cursor AI to speed up development, improve code quality, and deliver features more efficiently"
+                    "Previously associated through Deepnet Labs client engagement",
+                    "Worked on internal Python libraries used for configurable system management",
+                    "Developed 10+ REST APIs for internal services and workflows",
+                    "Implemented GitHub-based configuration persistence functionality",
+                    "Worked with RabbitMQ for real-time service communication",
+                    "Integrated PostgreSQL for user activity tracking and logging",
+                    "Refactored existing codebases and added new functionalities",
+                    "Contributed to head detection workflows, including dataset preparation and model training"
                 ],
-                tags=["Python", "Flask", "REST API", "Backend Development", "API Development", "Git", "GitHub", "Docker", "RabbitMQ", "Technical Documentation", "Cursor AI"]
+                tags=[
+                    "Python", "REST APIs", "RabbitMQ", "PostgreSQL", "Git",
+                    "Internal Libraries", "Refactoring", "ML Workflows"
+                ]
+            ),
+            ExperienceItem(
+                period="Apr 2024 – Jul 2024",
+                title="Software Engineer (Contract)",
+                company="Deepnet Labs",
+                location="Bengaluru, India",
+                description=[
+                    "Worked with internal Python libraries and development workflows",
+                    "Learned framework integration and configurable system architecture",
+                    "Prepared technical documentation for internal systems"
+                ],
+                tags=["Python", "Internal Libraries", "Technical Documentation", "System Architecture"]
             )
         ]
 
@@ -293,7 +307,7 @@ class Data:
         stats = PortfolioStats(
             github_projects=14,
             live_projects=2,
-            years_experience=1.6
+            years_experience="2+",
         )
 
         return Serializers.stats_to_dict(stats)
