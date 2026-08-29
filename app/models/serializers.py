@@ -21,7 +21,10 @@ class Serializers:
             "description": project.description,
             "tags": project.tags,
             "links": [{"type": link.type, "url": link.url, "label": link.label} for link in project.links],
-            "icon": project.icon
+            "icon": project.icon,
+            "featured": project.featured,
+            "image": project.image,
+            "highlight": project.highlight
         }
 
     @staticmethod
@@ -62,7 +65,8 @@ class Serializers:
             "title": certification.title,
             "issuer": certification.issuer,
             "description": certification.description,
-            "icon": certification.icon
+            "icon": certification.icon,
+            "url": certification.url
         }
 
     @staticmethod

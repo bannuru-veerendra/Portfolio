@@ -26,94 +26,71 @@ class Data:
             Project(
                 title="AccessVault",
                 description=(
-                    "Enterprise-grade backend API system for user management and authentication. Built with Flask "
-                    "and PostgreSQL, featuring secure JWT-based authentication with token rotation, password hashing "
-                    "(bcrypt), and role-based access control. Implemented comprehensive admin APIs for user management, "
-                    "audit logging, and system monitoring. Added rate limiting, API documentation with Swagger, and "
-                    "production-ready error handling. Deployed on cloud infrastructure with high availability."
+                    "Enterprise auth API with JWT, RBAC, rate limiting, and Swagger docs. "
+                    "Health checks, admin APIs, and structured error handling on Render."
                 ),
-                tags=["Flask", "Python", "PostgreSQL", "JWT", "Redis", "Swagger", "Render"],
+                tags=["Flask", "PostgreSQL", "Redis", "JWT", "RBAC", "Swagger", "Render"],
                 links=[
-                    ProjectLink(type="live", url="https://accessvault-api-8shv.onrender.com/", label="View Project"),
-                    ProjectLink(type="github", url="https://github.com/bannuru-veerendra/AccessVault", label="View Code")
+                    ProjectLink(type="live", url="https://accessvault-api-8shv.onrender.com/api/swagger-ui/", label="Swagger UI"),
+                    ProjectLink(type="github", url="https://github.com/bannuru-veerendra/access-vault", label="View Code")
                 ],
-                icon="fas fa-shield-alt"
+                icon="fas fa-shield-alt",
+                featured=True,
+                image="images/projects/accessvault.png"
+            ),
+            Project(
+                title="RideCare",
+                description=(
+                    "Vehicle companion for fuel logs, service history, and analytics. "
+                    "FastAPI backend with React frontend, Alembic migrations, and GitHub Actions CI."
+                ),
+                tags=["FastAPI", "React", "PostgreSQL", "Redis", "SQLAlchemy", "JWT", "Alembic", "GitHub Actions"],
+                links=[
+                    ProjectLink(type="live", url="https://ride-care-jade.vercel.app/", label="Live App"),
+                    ProjectLink(type="docs", url="https://ride-care.onrender.com/docs", label="API Docs"),
+                    ProjectLink(type="github", url="https://github.com/bannuru-veerendra/ride-care", label="View Code")
+                ],
+                icon="fas fa-car",
+                featured=True,
+                image="images/projects/ridecare.png"
             ),
             Project(
                 title="DevShare",
                 description=(
-                    "Full-stack web application built with ReactJS frontend and Flask/Python backend. "
-                    "Architected scalable RESTful API endpoints for user authentication, project management, "
-                    "and social features. Implemented real-time data synchronization, optimized database queries, "
-                    "and deployed on cloud infrastructure. Designed secure authentication system with JWT tokens "
-                    "and role-based access control."
+                    "Developer social platform with project showcases, posts, and feeds. "
+                    "React frontend with Firebase auth and hosting."
                 ),
-                tags=["ReactJS", "Flask", "TypeScript", "Python", "REST APIs", "MongoDB"],
+                tags=["React", "Firebase", "JavaScript", "REST APIs"],
                 links=[
                     ProjectLink(type="live", url="https://devshare-68.web.app/", label="View Project"),
-                    ProjectLink(type="github", url="https://github.com/bannuru-veerendra/DevShare", label="View Code")
+                    ProjectLink(type="github", url="https://github.com/bannuru-veerendra/dev-share", label="View Code")
                 ],
-                icon="fas fa-laptop-code"
+                icon="fas fa-laptop-code",
+                featured=True,
+                image="images/projects/devshare.png"
+            ),
+            Project(
+                title="AccessVault FastAPI",
+                description=(
+                    "Async FastAPI rewrite of AccessVault with the same JWT auth and RBAC model, "
+                    "SQLAlchemy 2.0, and auto-generated OpenAPI docs."
+                ),
+                tags=["FastAPI", "PostgreSQL", "Redis", "JWT", "SQLAlchemy", "OpenAPI"],
+                links=[
+                    ProjectLink(type="github", url="https://github.com/bannuru-veerendra/access-vault-fastapi", label="View Code")
+                ],
+                icon="fas fa-bolt"
             ),
             Project(
                 title="SecurePay Fraud Detection",
                 description=(
-                    "Machine Learning-powered fraud detection system built with Python. Developed backend services "
-                    "that process financial transactions in real-time, implementing ensemble ML models for "
-                    "high-accuracy fraud detection. Built RESTful APIs for transaction processing, integrated with "
-                    "database systems for pattern analysis, and created monitoring dashboards. Designed scalable "
-                    "architecture to handle high-volume transaction processing."
+                    "REST API for real-time transaction fraud scoring with scikit-learn."
                 ),
-                tags=["Python", "Machine Learning", "TensorFlow", "scikit-learn"],
+                tags=["Python", "Machine Learning", "REST APIs"],
                 links=[
-                    ProjectLink(type="github", url="https://github.com/bannuru-veerendra/SecurePay-Fraud-Detection", label="View Code")
+                    ProjectLink(type="github", url="https://github.com/bannuru-veerendra/secure-pay-fraud-detection", label="View Code")
                 ],
-                icon="fas fa-shield-alt"
-            ),
-            Project(
-                title="Music Hub",
-                description=(
-                    "Full-stack music streaming platform built with Java Spring Boot backend and MySQL database. "
-                    "Architected RESTful APIs for user management, playlist operations, and media metadata. "
-                    "Integrated Razorpay payment gateway APIs for subscription management. Implemented secure "
-                    "authentication, role-based access control, and optimized database queries for high-performance "
-                    "media catalog operations. Designed scalable backend architecture to handle concurrent user requests."
-                ),
-                tags=["Java", "Spring Boot", "MySQL", "Razorpay"],
-                links=[
-                    ProjectLink(type="github", url="https://github.com/bannuru-veerendra/Music-Hub", label="View Code")
-                ],
-                icon="fas fa-music"
-            ),
-            Project(
-                title="HRMS Logging System",
-                description=(
-                    "Enterprise microservices architecture built with Java Spring Boot. Designed and implemented "
-                    "multiple backend services with RESTful APIs, integrated distributed tracing using Zipkin, and "
-                    "implemented service discovery patterns. Built API gateway for request routing, implemented "
-                    "circuit breakers for fault tolerance, and set up centralized logging and monitoring systems. "
-                    "Designed scalable microservices architecture following best practices."
-                ),
-                tags=["Java", "Spring Boot", "Zipkin", "Dynatrace"],
-                links=[
-                    ProjectLink(type="github", url="https://github.com/suniljeevan/Presi-HRMS/tree/master", label="View Code")
-                ],
-                icon="fas fa-building"
-            ),
-            Project(
-                title="GuessMaster-2025",
-                description=(
-                    "An interactive, full-stack web-based number guessing game that combines strategy and competition "
-                    "with real-time score tracking. It offers both single-player and multiplayer modes, where players "
-                    "are challenged to guess a randomly generated number within a limited number of attempts. Features "
-                    "efficient error handling, logging, and a sleek, responsive user interface. High scores are stored "
-                    "for both modes, allowing players to compete for the top spot."
-                ),
-                tags=["Python", "Flask", "JavaScript", "Bootstrap"],
-                links=[
-                    ProjectLink(type="github", url="https://github.com/bannuru-veerendra/GuessMaster-2025", label="View Code")
-                ],
-                icon="fas fa-gamepad"
+                icon="fas fa-chart-line"
             )
         ]
 
@@ -129,28 +106,23 @@ class Data:
         """
         categories = [
             SkillCategory(
-                title="Programming & Frameworks",
-                skills=["Python", "Flask", "FastAPI", "JavaScript"]
+                title="Core Stack",
+                skills=["Python", "Flask", "FastAPI", "PostgreSQL", "Redis", "SQLAlchemy"]
             ),
             SkillCategory(
-                title="Backend & Architecture",
-                skills=["REST APIs", "Microservices", "OOP", "JWT Authentication", "API Security", "RabbitMQ"]
+                title="Backend Engineering",
+                skills=[
+                    "REST APIs", "JWT & RBAC", "Rate Limiting", "OpenAPI/Swagger",
+                    "Testing", "RabbitMQ", "Alembic", "API Security"
+                ]
             ),
             SkillCategory(
-                title="Databases & ORM",
-                skills=["PostgreSQL", "MySQL", "MongoDB", "Supabase", "SQLAlchemy", "Redis"]
+                title="DevOps & Deployment",
+                skills=["Docker", "GitHub Actions", "CI/CD", "Render", "Vercel", "Gunicorn", "Linux"]
             ),
             SkillCategory(
-                title="Data Science & ML",
-                skills=["NumPy", "Pandas", "scikit-learn", "Matplotlib", "Seaborn"]
-            ),
-            SkillCategory(
-                title="DevOps & Tools",
-                skills=["Docker", "Git", "GitHub", "Postman", "Render", "CI/CD", "Linux", "VS Code", "Cursor AI"]
-            ),
-            SkillCategory(
-                title="Frontend Technologies",
-                skills=["HTML", "CSS", "JavaScript", "React.js"]
+                title="Also Experienced With",
+                skills=["React", "JavaScript", "Firebase", "MongoDB", "YOLO/ML", "Pandas", "scikit-learn"]
             )
         ]
 
@@ -171,23 +143,19 @@ class Data:
                 company="Pors & Rao",
                 location="Bengaluru, India",
                 description=[
-                    "Previously associated through Deepnet Labs client engagement",
-                    "Worked on internal Python libraries used for configurable system management",
-                    "Developed 10+ REST APIs for internal services and workflows",
-                    "Implemented GitHub-based configuration persistence functionality",
-                    "Worked with RabbitMQ for real-time service communication",
-                    "Integrated PostgreSQL for user activity tracking and logging",
-                    "Refactored existing codebases and added new functionalities",
-                    "Contributed to head detection workflows, including dataset preparation and model training"
+                    "Developed and maintained 40+ REST APIs in an internal library used across multiple production projects",
+                    "Optimized PostgreSQL query performance, measurably improving endpoint response times",
+                    "Built a computer vision pipeline for human head detection using YOLOv11 — model integration, inference optimization, and deployment",
+                    "Wrote unit and integration tests for backend features running in production",
+                    "Built 2 backend features from scratch, improving code reusability and reducing duplication",
+                    "Integrated RabbitMQ for real-time service communication across microservices",
+                    "Refactored legacy codebases and shipped new functionality in Agile sprints"
                 ],
-                tags=[
-                    "Python", "REST APIs", "RabbitMQ", "PostgreSQL", "Git",
-                    "Internal Libraries", "Refactoring", "ML Workflows"
-                ]
+                tags=["YOLOv11", "RabbitMQ", "Internal Library", "ML Workflow"]
             ),
             ExperienceItem(
                 period="Apr 2024 – Jul 2024",
-                title="Software Engineer (Contract)",
+                title="Software Engineering Intern",
                 company="Deepnet Labs",
                 location="Bengaluru, India",
                 description=[
@@ -195,7 +163,7 @@ class Data:
                     "Learned framework integration and configurable system architecture",
                     "Prepared technical documentation for internal systems"
                 ],
-                tags=["Python", "Internal Libraries", "Technical Documentation", "System Architecture"]
+                tags=["Internal Libraries", "System Architecture"]
             )
         ]
 
@@ -215,7 +183,7 @@ class Data:
                 title="B.Tech in Information Science and Technology",
                 institution="Presidency University",
                 location="Bengaluru, India",
-                grade="CGPA: 8.21"
+                grade="CGPA: 8.21/10"
             ),
             EducationItem(
                 period="2017 – 2019",
@@ -248,19 +216,36 @@ class Data:
                 title="Rest API",
                 issuer="HackerRank",
                 description="REST API (2025)",
-                icon="fas fa-plug"
+                icon="fas fa-plug",
+                url="https://www.hackerrank.com/certificates/iframe/023ce60b561f"
             ),
             Certification(
                 title="Python",
                 issuer="HackerRank",
                 description="Python (2022)",
-                icon="fab fa-python"
+                icon="fab fa-python",
+                url="https://www.hackerrank.com/certificates/iframe/274384521e95"
+            ),
+            Certification(
+                title="SQL",
+                issuer="Udemy",
+                description="SQL Programming",
+                icon="fas fa-database",
+                url="https://www.udemy.com/certificate/UC-c3330878-9411-4951-b71c-551a0cc36308/"
             ),
             Certification(
                 title="Python Developer",
                 issuer="Sololearn",
                 description="Python Programming",
-                icon="fab fa-python"
+                icon="fab fa-python",
+                url="https://www.sololearn.com/en/certificates/CC-E5ZYG7VL"
+            ),
+            Certification(
+                title="Java Developer",
+                issuer="Sololearn",
+                description="Java Programming",
+                icon="fab fa-java",
+                url="https://www.sololearn.com/en/certificates/CT-FOZBJAUK"
             ),
             Certification(
                 title="Full Stack Development Training",
@@ -273,18 +258,6 @@ class Data:
                 issuer="Unschool",
                 description="Machine Learning Python",
                 icon="fas fa-brain"
-            ),
-            Certification(
-                title="HTML, JavaScript, & Bootstrap",
-                issuer="Udemy",
-                description="HTML5 JavaScript Bootstrap",
-                icon="fab fa-html5"
-            ),
-            Certification(
-                title="Java Developer",
-                issuer="Sololearn",
-                description="Java Programming",
-                icon="fab fa-java"
             ),
             Certification(
                 title="National Conference Paper Presentation",
@@ -306,7 +279,7 @@ class Data:
         """
         stats = PortfolioStats(
             github_projects=14,
-            live_projects=2,
+            live_projects=3,
             years_experience="2+",
         )
 

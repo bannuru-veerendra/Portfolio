@@ -10,19 +10,22 @@ from typing import List
 @dataclass
 class ProjectLink:
     """Project link model"""
-    type: str  # 'live' or 'github'
+    type: str  # 'live', 'github', or 'docs'
     url: str
     label: str = field(default='')
 
 
 @dataclass
-class Project:  
+class Project:
     """Project model"""
     title: str
     description: str
     tags: List[str]
     links: List[ProjectLink]
     icon: str = 'fas fa-laptop-code'
+    featured: bool = False
+    image: str = ''
+    highlight: str = ''
 
 
 @dataclass
@@ -60,6 +63,7 @@ class Certification:
     issuer: str
     description: str
     icon: str = 'fas fa-certificate'
+    url: str = ''
 
 
 @dataclass
@@ -67,4 +71,4 @@ class PortfolioStats:
     """Portfolio statistics model"""
     github_projects: int
     live_projects: int
-    years_experience: int
+    years_experience: str

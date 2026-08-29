@@ -3,38 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Veerendra Bannuru - Software Engineer | Python Developer. Python, Flask, REST APIs, PostgreSQL. Building scalable backend systems. View experience, projects, and contact.">
-    <title>Veerendra Bannuru | Backend Software Engineer Portfolio</title>
-    
-    <!-- External Fonts -->
+    <meta name="description" content="Veerendra Bannuru — Python Backend Engineer in Bengaluru. 2+ years building production REST APIs with Flask, FastAPI, PostgreSQL & Redis.">
+    <meta property="og:title" content="Veerendra Bannuru | Python Backend Engineer">
+    <meta property="og:description" content="Python backend engineer building production REST APIs. Based in Bengaluru, India.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://veeru.pythonanywhere.com/">
+    <meta property="og:image" content="{{ url_for('static', filename='documents/profile.jpg', _external=True) }}">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Veerendra Bannuru | Python Backend Engineer</title>
+
+    <link rel="icon" href="{{ url_for('static', filename='images/favicon.svg') }}" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-    
-    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Veerendra Bannuru",
+        "jobTitle": "Python Backend Engineer",
+        "email": "bannuru.veerendra@gmail.com",
+        "telephone": "+91-9010423948",
+        "url": "https://veeru.pythonanywhere.com/",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Bengaluru",
+            "addressRegion": "Karnataka",
+            "addressCountry": "IN"
+        },
+        "sameAs": [
+            "https://github.com/bannuru-veerendra",
+            "https://www.linkedin.com/in/bannuru-veerendra/"
+        ]
+    }
+    </script>
 </head>
-<body>
-    <!-- Skip to main content for accessibility -->
+<body data-static-url="{{ url_for('static', filename='') }}">
     <a href="#home" class="skip-to-main">Skip to main content</a>
-    
-    <!-- Navigation -->
+
     <nav class="navbar" id="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-            <div>
-                <a href="#home" class="logo-link" aria-label="Home">
-                    <span class="logo-text">Portfolio</span>
-                </a>
-            </div>
+            <a href="#home" class="logo-link" aria-label="Home">
+                <span class="logo-text">Veerendra</span>
+            </a>
             <ul class="nav-menu" id="nav-menu" role="menubar">
                 <li role="none"><a href="#about" class="nav-link" role="menuitem">About</a></li>
                 <li role="none"><a href="#experience" class="nav-link" role="menuitem">Experience</a></li>
-                <li role="none"><a href="#education" class="nav-link" role="menuitem">Education</a></li>
-                <li role="none"><a href="#skills" class="nav-link" role="menuitem">Skills</a></li>
                 <li role="none"><a href="#projects" class="nav-link" role="menuitem">Projects</a></li>
+                <li role="none"><a href="#skills" class="nav-link" role="menuitem">Skills</a></li>
+                <li role="none"><a href="#education" class="nav-link" role="menuitem">Education</a></li>
                 <li role="none"><a href="#certifications" class="nav-link" role="menuitem">Certifications</a></li>
                 <li role="none"><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
             </ul>
@@ -46,44 +66,41 @@
         </div>
     </nav>
 
-    <!-- Intro Section -->
     <section id="home" class="intro">
+        <div class="intro-bg" aria-hidden="true">
+            <div class="intro-gradient"></div>
+            <div class="intro-grid"></div>
+        </div>
         <div class="intro-content">
             <div class="intro-text">
+                <span class="availability-badge"><span class="availability-dot"></span>Open to opportunities</span>
                 <h1 class="intro-title">
                     <span class="greeting">Hi, I'm</span>
-                    <span class="name">Veerendra</span>
-                    <span class="role">Software Engineer | Python Developer</span>
+                    <span class="name">Veerendra Bannuru</span>
+                    <span class="role">Python Backend Engineer</span>
                 </h1>
                 <p class="intro-description">
-                    Software Engineer with hands-on experience in Python and backend development using Flask.
-                    Skilled in building clean, scalable RESTful APIs, working with relational databases like PostgreSQL, and improving system performance.
-                    I deploy and maintain backend services, write modular, well-documented code, and collaborate in Agile teams to deliver production-quality software.
+                    I build production REST APIs with Python — currently at <strong>Pors &amp; Rao</strong>, Bengaluru.
+                    Check out my projects below or grab my resume from the bar at the bottom.
                 </p>
-                <div class="intro-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-                    <a href="{{ url_for('static', filename='documents/bannuru-veerendra-resume.pdf') }}" class="btn btn-resume" download>
-                        <i class="fas fa-download"></i>
-                        <span>Download Resume</span>
-                    </a>
+                <div class="intro-meta">
+                    <span class="meta-pill"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Bengaluru, India</span>
+                    <span class="meta-pill"><i class="fas fa-briefcase" aria-hidden="true"></i> <span id="hero-experience">2+</span> yrs experience</span>
+                    <span class="meta-pill"><i class="fas fa-rocket" aria-hidden="true"></i> <span id="hero-live-projects">3</span> live demos</span>
                 </div>
-                <div class="social-links">
-                    <a href="https://github.com/bannuru-veerendra" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/veerendra-bannuru-900934215" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                    <a href="mailto:bannuru.veerendra@gmail.com" class="social-link" aria-label="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
+                <div class="intro-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="intro-visual">
+                <div class="hero-image-wrapper">
+                    <img src="{{ url_for('static', filename='documents/profile.jpg') }}" alt="Veerendra Bannuru — Python Backend Engineer" class="hero-profile-image" loading="eager" width="360" height="360">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">
@@ -91,108 +108,74 @@
                 About Me
             </h2>
             <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a Software Engineer focused on Python and backend development with Flask. I build and maintain
-                        backend services, RESTful APIs, and database-backed systems—with an emphasis on clean, maintainable code
-                        and collaboration in Agile teams.
-                    </p>
-                    <p class="about-skills">
-                        What I bring to the table: strong problem-solving and performance tuning, experience with authentication
-                        and cloud deployment, and a habit of writing well-documented code so systems stay reliable as they scale.
-                        I've worked with <strong>Flask</strong>, <strong>PostgreSQL</strong>, <strong>Docker</strong>, <strong>Redis</strong>,
-                        and <strong>JWT</strong> across the stack—so I'm used to the full flow from code to production.
-                    </p>
-                    <div class="about-stats">
-                        <div class="stat-item">
-                            <div class="stat-number">14</div>
-                            <div class="stat-label">GitHub Projects</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">3</div>
-                            <div class="stat-label">Live Projects</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-number">2</div>
-                            <div class="stat-label">Years Experience</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <div class="image-wrapper">
-                        <img src="{{ url_for('static', filename='documents/profile.jpg') }}" alt="Veerendra Bannuru - Software Engineer | Python Developer" class="profile-image" loading="lazy" width="280" height="280">
-                    </div>
-                </div>
+                <p class="about-text">
+                    I ship production backends — 40+ REST APIs at my day job, 3 deployed side projects with live demos,
+                    and a focus on auth, databases, and services that are tested and documented.
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
     <section id="experience" class="experience">
         <div class="container">
             <h2 class="section-title">
                 <span class="title-number">02.</span>
                 Professional Experience
             </h2>
-            <div class="experience-timeline">
-                <!-- Experience items will be loaded dynamically from API -->
-            </div>
+            <div class="experience-timeline"></div>
         </div>
     </section>
 
-    <!-- Education Section -->
-    <section id="education" class="education">
+    <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title">
                 <span class="title-number">03.</span>
-                Education
+                Projects
             </h2>
-            <div class="education-timeline">
-                <!-- Education items will be loaded dynamically from API -->
+            <div class="featured-projects-grid projects-grid"></div>
+            <div class="more-projects-section" id="more-projects-section" hidden>
+                <h3 class="more-projects-title">More Projects</h3>
+                <p class="more-projects-intro">
+                    A FastAPI rewrite of AccessVault and an ML-backed API — same REST-first approach, explored further.
+                </p>
+                <div class="more-projects-grid projects-grid"></div>
             </div>
+            <button type="button" class="btn btn-secondary toggle-more-projects" id="toggle-more-projects" hidden aria-expanded="false">
+                View More Projects
+            </button>
         </div>
     </section>
 
-    <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
             <h2 class="section-title">
                 <span class="title-number">04.</span>
-                Skills & Technologies
+                Skills &amp; Technologies
             </h2>
-            <div class="skills-grid">
-                <!-- Skills will be loaded dynamically from API -->
-            </div>
+            <div class="skills-grid"></div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section id="education" class="education">
         <div class="container">
             <h2 class="section-title">
                 <span class="title-number">05.</span>
-                Featured Projects
+                Education
             </h2>
-            <div class="projects-grid">
-                <!-- Projects will be loaded dynamically from API -->
-            </div>
+            <div class="education-timeline"></div>
         </div>
     </section>
 
-    <!-- Certifications Section -->
     <section id="certifications" class="certifications">
         <div class="container">
             <h2 class="section-title">
                 <span class="title-number">06.</span>
                 Certifications
             </h2>
-            <div class="certifications-grid">
-                <!-- Certifications will be loaded dynamically from API -->
-            </div>
+            <div class="certifications-grid"></div>
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
             <h2 class="section-title">
@@ -200,54 +183,24 @@
                 Get In Touch
             </h2>
             <div class="contact-content">
-                <div>
+                <div class="contact-info">
                     <p class="contact-description">
-                        I'm always open to discussing new projects, creative ideas, or opportunities to be part
-                        of your visions. Feel free to reach out if you'd like to collaborate or have any questions.
+                        Open to Python/backend roles. Send a message or reach me directly — I typically respond within 24 hours.
                     </p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-user"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Name</h4>
-                                <p>Veerendra Bannuru</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Email</h4>
-                                <p>bannuru.veerendra@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div class="contact-text">
-                                <h4>Location</h4>
-                                <p>Nandyal, Andhra Pradesh, India</p>
-                            </div>
+                    <div class="contact-open-roles">
+                        <p class="contact-open-label"><i class="fas fa-briefcase" aria-hidden="true"></i> Open for roles in</p>
+                        <div class="contact-locations">
+                            <span class="location-pill">Bengaluru</span>
+                            <span class="location-pill">Hyderabad</span>
+                            <span class="location-pill">Chennai</span>
+                            <span class="location-pill">Remote</span>
                         </div>
                     </div>
-                    <div class="contact-connect">
-                        <h4 class="contact-connect-title">Connect</h4>
-                        <div class="social-links">
-                            <a href="https://github.com/bannuru-veerendra" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
-                                <i class="fab fa-github"></i>
-                            </a>
-                            <a href="https://www.linkedin.com/in/veerendra-bannuru-900934215" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="mailto:bannuru.veerendra@gmail.com" class="social-link" aria-label="Email">
-                                <i class="fas fa-envelope"></i>
-                            </a>
-                        </div>
-                    </div>
+                    <ul class="contact-quick-links">
+                        <li><a href="mailto:bannuru.veerendra@gmail.com" class="contact-link"><i class="fas fa-envelope" aria-hidden="true"></i> bannuru.veerendra@gmail.com</a></li>
+                        <li><a href="tel:+919010423948" class="contact-link"><i class="fas fa-phone" aria-hidden="true"></i> +91-9010423948</a></li>
+                        <li><span><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Bengaluru, Karnataka, India</span></li>
+                    </ul>
                 </div>
                 <form class="contact-form" id="contact-form" method="POST" action="{{ url_for('contact.submit_contact_form') }}">
                     <p id="form-status" class="form-status" role="status" aria-live="polite" aria-hidden="true"></p>
@@ -276,6 +229,30 @@
         </div>
     </section>
 
-    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+    <footer class="footer footer-fixed" role="contentinfo">
+        <div class="container footer-bar">
+            <p class="footer-text">&copy; 2026 Veerendra Bannuru</p>
+            <div class="footer-actions">
+                <a href="{{ url_for('static', filename='documents/bannuru-veerendra-resume.pdf') }}" class="footer-action footer-action-primary" download>
+                    <i class="fas fa-file-pdf" aria-hidden="true"></i>
+                    <span>Resume</span>
+                </a>
+                <a href="https://github.com/bannuru-veerendra" target="_blank" rel="noopener noreferrer" class="footer-action" aria-label="GitHub">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/bannuru-veerendra/" target="_blank" rel="noopener noreferrer" class="footer-action" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
+                    <span>LinkedIn</span>
+                </a>
+                <a href="mailto:bannuru.veerendra@gmail.com" class="footer-action" aria-label="Email">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
+                    <span>Email</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}?v=5" defer></script>
 </body>
 </html>

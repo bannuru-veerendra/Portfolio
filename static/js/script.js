@@ -158,47 +158,94 @@ async function fetchAPI(endpoint) {
  */
 const API_ERROR_MSG = '<p style="text-align: center; color: var(--text-secondary);">Unable to load. Please refresh the page.</p>';
 
+function getStaticUrl(path) {
+    const base = document.body.dataset.staticUrl || '/static/';
+    const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+    const normalizedPath = path.startsWith('/') ? path.slice(1) : path;
+    return `${normalizedBase}${normalizedPath}`;
+}
+
+/**
+ * Build HTML for a single project card
+ */
+function buildProjectCard(project) {
+    const linkIcons = {
+        live: 'fas fa-external-link-alt',
+        github: 'fab fa-github',
+        docs: 'fas fa-book'
+    };
+
+    const linksHTML = project.links.map(link => {
+        const iconClass = linkIcons[link.type] || 'fas fa-link';
+        const ariaLabel = link.label || 'Open link';
+        return `<a href="${link.url}" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="${ariaLabel}" title="${ariaLabel}">
+            <i class="${iconClass}"></i>
+        </a>`;
+    }).join('');
+
+    const tagsHTML = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+
+    const imageHTML = project.image
+        ? `<img src="${getStaticUrl(project.image)}" alt="${project.title} preview" class="project-screenshot" loading="lazy">`
+        : `<div class="project-placeholder"><i class="${project.icon}"></i></div>`;
+
+    return `
+        <div class="project-card${project.featured ? ' project-card-featured' : ''}">
+            <div class="project-image">
+                ${imageHTML}
+            </div>
+            <div class="project-content">
+                <div class="project-header">
+                    <h3 class="project-title">${project.title}</h3>
+                    <div class="project-links">${linksHTML}</div>
+                </div>
+                <p class="project-description">${project.description}</p>
+                <div class="project-tags">${tagsHTML}</div>
+            </div>
+        </div>
+    `;
+}
+
 async function renderProjects() {
-    const projectsGrid = document.querySelector('.projects-grid');
-    if (!projectsGrid) return;
+    const featuredGrid = document.querySelector('.featured-projects-grid');
+    const moreGrid = document.querySelector('.more-projects-grid');
+    const moreSection = document.getElementById('more-projects-section');
+    const toggleBtn = document.getElementById('toggle-more-projects');
+
+    if (!featuredGrid) return;
 
     const projects = await fetchAPI('projects');
     if (!projects || projects.length === 0) {
-        projectsGrid.innerHTML = API_ERROR_MSG;
+        featuredGrid.innerHTML = API_ERROR_MSG;
         return;
     }
 
-    projectsGrid.innerHTML = projects.map(project => {
-        const linksHTML = project.links.map(link => {
-            const iconClass = link.type === 'live' ? 'fas fa-external-link-alt' : 'fab fa-github';
-            const ariaLabel = link.type === 'live' ? 'View Project' : 'View Code';
-            return `<a href="${link.url}" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="${ariaLabel}">
-                <i class="${iconClass}"></i>
-            </a>`;
-        }).join('');
+    const featured = projects.filter(project => project.featured);
+    const more = projects.filter(project => !project.featured);
 
-        const tagsHTML = project.tags.map(tag => `<span class="tag">${tag}</span>`).join('');
+    featuredGrid.innerHTML = featured.map(buildProjectCard).join('');
 
-        return `
-            <div class="project-card">
-                <div class="project-image">
-                    <div class="project-placeholder">
-                        <i class="${project.icon}"></i>
-                    </div>
-                </div>
-                <div class="project-content">
-                    <div class="project-header">
-                        <h3 class="project-title">${project.title}</h3>
-                        <div class="project-links">${linksHTML}</div>
-                    </div>
-                    <p class="project-description">${project.description}</p>
-                    <div class="project-tags">${tagsHTML}</div>
-                </div>
-            </div>
-        `;
-    }).join('');
+    if (moreGrid && more.length > 0) {
+        moreGrid.innerHTML = more.map(buildProjectCard).join('');
+        if (toggleBtn) {
+            toggleBtn.hidden = false;
+            toggleBtn.addEventListener('click', () => {
+                const isHidden = moreSection.hasAttribute('hidden');
+                if (isHidden) {
+                    moreSection.removeAttribute('hidden');
+                    toggleBtn.textContent = 'Show Less';
+                    toggleBtn.setAttribute('aria-expanded', 'true');
+                } else {
+                    moreSection.setAttribute('hidden', '');
+                    toggleBtn.textContent = 'View More Projects';
+                    toggleBtn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        }
+    } else if (toggleBtn) {
+        toggleBtn.hidden = true;
+    }
 
-    // Re-observe new project cards for animations
     document.querySelectorAll('.project-card').forEach(card => {
         animationObserver.observe(card);
     });
@@ -315,7 +362,12 @@ async function renderCertifications() {
         return;
     }
 
-    certificationsGrid.innerHTML = certifications.map(cert => `
+    certificationsGrid.innerHTML = certifications.map(cert => {
+        const verifyLink = cert.url
+            ? `<a href="${cert.url}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary certification-link">View Certificate <i class="fas fa-external-link-alt"></i></a>`
+            : '';
+
+        return `
         <div class="certification-card">
             <div class="certification-icon">
                 <i class="${cert.icon}"></i>
@@ -323,8 +375,10 @@ async function renderCertifications() {
             <h3 class="certification-title">${cert.title}</h3>
             <div class="certification-issuer">${cert.issuer}</div>
             <div class="certification-description">${cert.description}</div>
+            ${verifyLink}
         </div>
-    `).join('');
+    `;
+    }).join('');
 
     // Re-observe new certification cards for animations
     document.querySelectorAll('.certification-card').forEach(card => {
@@ -339,21 +393,11 @@ async function updateStats() {
     const stats = await fetchAPI('stats');
     if (!stats) return;
 
-    const statElements = {
-        'github_projects': document.querySelector('.stat-item:nth-child(1) .stat-number'),
-        'live_projects': document.querySelector('.stat-item:nth-child(2) .stat-number'),
-        'years_experience': document.querySelector('.stat-item:nth-child(3) .stat-number')
-    };
+    const heroExperience = document.getElementById('hero-experience');
+    const heroLiveProjects = document.getElementById('hero-live-projects');
 
-    if (statElements.github_projects) {
-        statElements.github_projects.textContent = stats.github_projects;
-    }
-    if (statElements.live_projects) {
-        statElements.live_projects.textContent = stats.live_projects;
-    }
-    if (statElements.years_experience) {
-        statElements.years_experience.textContent = stats.years_experience;
-    }
+    if (heroExperience) heroExperience.textContent = stats.years_experience;
+    if (heroLiveProjects) heroLiveProjects.textContent = stats.live_projects;
 }
 
 // Contact form: AJAX submit, show success/error on same page
